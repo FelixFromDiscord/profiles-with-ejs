@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% if (userNotFound === true) {%>
+        <title><%= %></title>
+    <%} else {%>
+        <title><%= username %></title>
+    <%}%>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+    <% if (userNotFound === false) {%>
+        <div class="profile">
+            <span onclick="showID();" id="username"><%= username %></span>
+            <span id="idTooltip" class="idTooltip">Click to copy the UserID</span>
+        </div>
+        <script defer>
+            const id = '<%= id %>';
+
+            document.getElementById("username").addEventListener('mouseover', () => {
+                document.getElementById("idTooltip").classList.toggle("show");
+            });
+            document.getElementById("username").addEventListener('mouseout', () => {
+                document.getElementById("idTooltip").classList.toggle("show");
+            });
+            document.getElementById("username").addEventListener('click', () => {
+                navigator.clipboard.writeText(id);
+            });
+        </script>
+    <%} else {%>
+        <div class="profile">
+            <h1>User not found!</h1>
+            <p>Incorrect UID or Suspended account</p>
+            <a href="/">Click me to go back!</a>
+        </div>
+    <%}%>
+</body>
+</html>

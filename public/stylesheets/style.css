@@ -1,0 +1,37 @@
+* {
+  font-family: "MS Gothic", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.idTooltip {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.profile {
+  padding: 25px;
+  margin: auto 0;
+}
+
+#username {
+  font-size: 2.5vw;
+  font-weight: bold;
+  transition: color, border-bottom-width 0.1s ease-out;
+  border-bottom: limegreen 0 dotted;
+}
+
+#username:active {
+  color: limegreen;
+  border-bottom-width: 2px;
+}
+
+.show {
+  opacity: 1;
+}
